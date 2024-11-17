@@ -3,7 +3,26 @@
 </div>
 
 <div class="courses">
-  @for (course of courses; track $index) {
-    <course-card (courseSelected)="onCourseViewed($event)" [course]="course" />
+  @for (course of courses; track $index; 
+        let index = $index; 
+        let count = $count; 
+        let first = $first; 
+        let last = $last; 
+        let even = $even;
+        let odd = $odd;
+        ) {
+
+    <course-card 
+      [course]="course"
+      [index]="index" 
+      [class.is-first]="first"
+      [class.is-last]="last"
+      (courseSelected)="onCourseViewed($event)" 
+    />
+
+  }
+
+  @empty {
+    <h1>No courses found!</h1>
   }
 </div>
