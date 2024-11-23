@@ -29,4 +29,10 @@ export class CourseCardComponent {
       return ['beginner'];
     }
   }
+
+  cardStyles() {
+    return {
+      'background-image': 'url()'
+    };
+  }
 }
