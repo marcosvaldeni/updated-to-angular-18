@@ -26,6 +26,10 @@
     <h1>No courses found!</h1>
   } -->
 
+<div *ngFor="let pair of courses[0] | keyvalue">
+  {{ pair.key + ': ' + pair.value }}
+</div>
+
   <course-card *ngFor="let course of courses; index as i; first as isFirst; last as isLast; even as isEven; odd as isOdd"
     [course]="course"
     [index]="i"

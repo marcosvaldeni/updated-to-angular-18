@@ -8,6 +8,9 @@ import {COURSES} from '../db-data';
 })
 export class AppComponent {
   courses = COURSES;
+  startDate = new Date();
+
+  title = COURSES[0].description;
 
   onCourseViewed(course) {
     console.log('App component - click envent bubbled...', course);
