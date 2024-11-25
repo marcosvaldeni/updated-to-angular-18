@@ -16,6 +16,13 @@ export class AppComponent {
   @ViewChild('container')
   containerDiv: ElementRef;
 
+  constructor() {
+    console.log("containerDiv: ", this.card1);
+  }
+
+  ngAfterViewInit() {
+    console.log("containerDiv", this.card1);
+  }
 
   onCourseViewed(course) {
     console.log(this.card1);
