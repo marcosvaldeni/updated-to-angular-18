@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import {COURSES} from '../db-data';
+import { CourseCardComponent } from './course-card/course-card.component';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +9,11 @@ import {COURSES} from '../db-data';
 })
 export class AppComponent {
   courses = COURSES;
-  startDate = new Date();
 
-  title = COURSES[0].description;
+  @ViewChild(CourseCardComponent)
+  card: CourseCardComponent;
 
   onCourseViewed(course) {
-    console.log('App component - click envent bubbled...', course);
+    console.log(this.card);
   }
 }

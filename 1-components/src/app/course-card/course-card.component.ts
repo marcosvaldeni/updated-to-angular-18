@@ -12,27 +12,11 @@ import { CommonModule } from '@angular/common';
 export class CourseCardComponent {
   @Input({ required: true })
   course: Course;
-  @Input({ required: true })
-  index: number;
 
   @Output()
   courseSelected = new EventEmitter<Course>();
 
   onCourseViewd() {
-    console.log('test');
-
     this.courseSelected.emit(this.course);
-  }
-
-  cardClasses() {
-    if (this.course.category == 'BEGINNER') {
-      return ['beginner'];
-    }
-  }
-
-  cardStyles() {
-    return {
-      'background-image': 'url()'
-    };
   }
 }
