@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import {COURSES} from '../db-data';
 import { CourseCardComponent } from './course-card/course-card.component';
 
@@ -10,10 +10,14 @@ import { CourseCardComponent } from './course-card/course-card.component';
 export class AppComponent {
   courses = COURSES;
 
-  @ViewChild(CourseCardComponent)
-  card: CourseCardComponent;
+  @ViewChild('cardRef1')
+  card1: CourseCardComponent;
+
+  @ViewChild('container')
+  containerDiv: ElementRef;
+
 
   onCourseViewed(course) {
-    console.log(this.card);
+    console.log(this.card1);
   }
 }
