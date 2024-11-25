@@ -16,7 +16,7 @@ export class CourseCardComponent {
   @Output()
   courseSelected = new EventEmitter<Course>();
 
-  onCourseViewd() {
+  onCourseViewed() {
     this.courseSelected.emit(this.course);
   }
 

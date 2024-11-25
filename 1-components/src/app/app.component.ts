@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import {COURSES} from '../db-data';
 import { CourseCardComponent } from './course-card/course-card.component';
 
@@ -10,21 +10,21 @@ import { CourseCardComponent } from './course-card/course-card.component';
 export class AppComponent {
   courses = COURSES;
 
-  @ViewChild('cardRef1')
-  card1: CourseCardComponent;
-
-  @ViewChild('container')
-  containerDiv: ElementRef;
-
-  constructor() {
-    console.log("containerDiv: ", this.card1);
-  }
+  @ViewChildren(CourseCardComponent)
+  cards: QueryList<CourseCardComponent>;
 
   ngAfterViewInit() {
-    console.log("containerDiv", this.card1);
+    this.cards.changes.subscribe((card) => {
+      console.log(card);
+    });
+    // console.log(this.cards);
+  }
+
+  onCourseEdited() {
+    this.courses.pop();
   }
 
   onCourseViewed(course) {
-    console.log(this.card1);
+    console.log(this.cards);
   }
 }
