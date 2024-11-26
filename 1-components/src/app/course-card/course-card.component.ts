@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { AfterViewInit, Component, ContentChild, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { Course } from '../model/course';
 import { CommonModule } from '@angular/common';
 
@@ -9,16 +9,23 @@ import { CommonModule } from '@angular/common';
   templateUrl: './course-card.component.html',
   styleUrl: './course-card.component.css'
 })
-export class CourseCardComponent {
+export class CourseCardComponent implements AfterViewInit {
+
   @Input({ required: true })
   course: Course;
 
   @Output()
   courseSelected = new EventEmitter<Course>();
 
+  @ContentChild('courseImage')
+  image;
+
   onCourseViewed() {
     this.courseSelected.emit(this.course);
   }
 
+  ngAfterViewInit(): void {
+    console.log(this.image);
+  }
 
 }

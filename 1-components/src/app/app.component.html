@@ -8,13 +8,14 @@
     [course]="course"
     (courseSelected)="onCourseViewed($event)" 
   >
-  <img class="course-image" *ngIf="course.iconUrl; else noImage" width="300" alt="Angular Logo" [src]="course.iconUrl">
 
-  <div class="course-description">
+  <course-image [ttttt]="course.iconUrl"></course-image>
+
+  <!-- <div class="course-description">
     {{ course.longDescription }}
-  </div>
+  </div> -->
 
-  <p>{{ courses.length }}</p>
+  <!-- <p>{{ courses.length }}</p> -->
   
   </course-card>
 </div>

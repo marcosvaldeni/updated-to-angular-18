@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CourseCardComponent } from './course-card/course-card.component';
 import { CommonModule } from '@angular/common';
+import { CourseImageComponent } from "./course-image/course-image.component";
 
 @NgModule({
   declarations: [
@@ -13,8 +14,9 @@ import { CommonModule } from '@angular/common';
   imports: [
     CourseCardComponent,
     BrowserModule,
-    BrowserAnimationsModule
-  ],
+    BrowserAnimationsModule,
+    CourseImageComponent
+],
   providers: [CommonModule],
   bootstrap: [AppComponent]
 })
