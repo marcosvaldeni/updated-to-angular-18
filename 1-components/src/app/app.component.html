@@ -2,36 +2,19 @@
   <img class="logo" src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png">
 </div>
 
-<div class="courses" #container>
-  <!-- Angular 18 @for
-  @for (course of courses; track $index; 
-        let index = $index; 
-        let count = $count; 
-        let first = $first; 
-        let last = $last; 
-        let even = $even;
-        let odd = $odd;
-        ) {
+<div class="courses" *ngIf="courses[0] as course">
 
-    <course-card 
-      [course]="course"
-      [index]="index" 
-      [class.is-first]="first"
-      [class.is-last]="last"
-      (courseSelected)="onCourseViewed($event)" 
-    />
-  }
-
-  @empty {
-    <h1>No courses found!</h1>
-  } -->
-
-<!-- <div *ngFor="let pair of courses[0] | keyvalue">
-  {{ pair.key + ': ' + pair.value }}
-</div> -->
-
-  <course-card *ngFor="let course of courses; index as i"
+  <course-card 
     [course]="course"
     (courseSelected)="onCourseViewed($event)" 
-  />
+  >
+  <img class="course-image" *ngIf="course.iconUrl; else noImage" width="300" alt="Angular Logo" [src]="course.iconUrl">
+
+  <div class="course-description">
+    {{ course.longDescription }}
+  </div>
+
+  <p>{{ courses.length }}</p>
+  
+  </course-card>
 </div>
