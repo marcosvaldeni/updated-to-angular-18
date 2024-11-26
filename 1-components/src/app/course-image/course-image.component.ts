@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'course-image',
@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './course-image.component.css'
 })
 export class CourseImageComponent {
-  @Input('ttttt')
+  @Input('src')
   imgUrl: string;
-
+  
 }

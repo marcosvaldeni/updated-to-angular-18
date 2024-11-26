@@ -9,13 +9,15 @@
     (courseSelected)="onCourseViewed($event)" 
   >
 
-  <course-image [ttttt]="course.iconUrl"></course-image>
+  <course-image [src]="course.iconUrl"></course-image>
+  <course-image [src]="courses[1].iconUrl"></course-image>
+  <course-image [src]="courses[2].iconUrl"></course-image>
 
-  <!-- <div class="course-description">
+  <div class="course-description">
     {{ course.longDescription }}
-  </div> -->
+  </div>
 
-  <!-- <p>{{ courses.length }}</p> -->
+  <p>{{ courses.length }}</p>
   
   </course-card>
 </div>
