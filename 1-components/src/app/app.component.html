@@ -9,9 +9,7 @@
     (courseSelected)="onCourseViewed($event)" 
   >
 
-  <course-image [src]="course.iconUrl"></course-image>
-  <course-image [src]="courses[1].iconUrl"></course-image>
-  <course-image [src]="courses[2].iconUrl"></course-image>
+  <course-image [src]="course.iconUrl" />
 
   <div class="course-description">
     {{ course.longDescription }}
