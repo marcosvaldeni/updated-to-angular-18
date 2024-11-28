@@ -5,17 +5,13 @@
       {{ index || '' + ' ' + course.description }}
     </div>
 
-    <ng-template #blanckImage>
-      <p class="warn">{{ course.description }} image is available yet.</p>
+    <ng-content select="course-image" *ngIf="course.iconUrl; else noImage"></ng-content>
 
-      <img src="/assets/empty-image.png">
+    <ng-template #noImage>
+      <ng-container *ngTemplateOutlet="noImageTpl"></ng-container>
     </ng-template>
 
-    <ng-content select="course-image" *ngIf="course.iconUrl; else blanckImage"></ng-content>
-
     <ng-content select=".course-description"></ng-content>
-
-    <ng-content></ng-content>
 
     <div class="course-category" [ngSwitch]="course.category">
       <div class="category" *ngSwitchCase="'BEGINNER'">Beginner</div>

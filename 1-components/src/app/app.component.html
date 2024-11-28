@@ -4,7 +4,18 @@
 
 <div class="courses" *ngIf="courses[0] as course">
 
+  <ng-template #blanckImage let-courseName="description">
+    <p class="warn">{{ courseName }} has no image available yet.</p>
+
+    <img src="/assets/empty-image.png">
+  </ng-template>
+
+  <ng-container *ngTemplateOutlet="blanckImage">
+
+  </ng-container>
+
   <course-card 
+    [noImageTpl]="blanckImage"
     [course]="course"
     (courseSelected)="onCourseViewed($event)" 
   >
