@@ -7,7 +7,7 @@
 
 
 
-<div [highlighted]="true" class="courses" *ngIf="courses[0] as course">
+<div highlighted (toggleHighlight)="onToggle($event)" class="courses" *ngIf="courses[0] as course">
 
     <course-card
             (courseSelected)="onCourseSelected($event)"
