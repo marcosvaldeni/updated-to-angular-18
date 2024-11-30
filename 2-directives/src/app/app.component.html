@@ -4,12 +4,10 @@
 
 </div>
 
-
-
 <div highlighted #highlighter="hl"
   (toggleHighlight)="onToggle($event)" class="courses" *ngIf="courses[0] as course">
 
-  <course-card (courseSelected)="onCourseSelected($event)" [course]="course">
+  <course-card *ngxUnless="!course.iconUrl" (courseSelected)="onCourseSelected($event)" [course]="course">
 
     <course-image [src]="course.iconUrl"></course-image>
 
