@@ -13,7 +13,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
     standalone: false
 })
 export class AppComponent implements OnInit {
-
+  courses$: Observable<Course[]>;
 
   courses = COURSES;
 
@@ -26,12 +26,6 @@ export class AppComponent implements OnInit {
       .set('page', '1')
       .set('pageSize', '10');
 
-    this.http.get('http://localhost:9000/api/courses', { params })
-      .subscribe(
-        val => console.log(val)
-      );
+    this.courses$ = this.http.get<Course[]>('http://localhost:9000/api/courses', { params });
   }
-
-
-
 }
