@@ -19,15 +19,10 @@ export class AppComponent implements OnInit {
   courses = COURSES;
 
   constructor(
-    private http: HttpClient,
     private coursesService: CoursesService
   ) {}
 
   ngOnInit() {
-    const params = new HttpParams()
-      .set('page', '1')
-      .set('pageSize', '10');
-
-    this.courses$ = this.http.get<Course[]>('http://localhost:9000/api/courses', { params });
+    this.courses$ = this.coursesService.loadCourses();
   }
 }
