@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {Course} from "../model/course";
 import {interval, noop, Observable, of, throwError, timer} from 'rxjs';
 import {catchError, delay, delayWhen, finalize, map, retryWhen, shareReplay, tap} from 'rxjs/operators';
 import {createHttpObservable} from '../common/util';
 import {Store} from '../common/store.service';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -13,6 +14,11 @@ import {Store} from '../common/store.service';
     standalone: false
 })
 export class HomeComponent implements OnInit {
+
+    public http = inject(HttpClient);
+    private apiUrl = 'http://localhost:9000/api/courses';
+
+
 
     beginnerCourses$: Observable<Course[]>;
 
